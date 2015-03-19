@@ -23,7 +23,7 @@ public class ZeroMQMessageTask extends AsyncTask<String, Void, String> {
         ZMQ.Socket socket = context.socket(ZMQ.SUB);
         socket.connect("tcp://54.154.194.204:3000");
 
-         String filter = "kittycats";
+        String filter = "kittycats";
         String filter2 = "";
         socket.subscribe(filter.getBytes());
 
@@ -32,7 +32,7 @@ public class ZeroMQMessageTask extends AsyncTask<String, Void, String> {
         long total_temp = 0;
         String msg = String.valueOf(socket.recvStr().substring(9));
         Log.d("zero", msg);
-        int previous = Integer.parseInt(msg);;
+        int previous = Integer.parseInt(msg);
         int now = 0;
         while(true){
             //  Use trim to remove the tailing '0' character
